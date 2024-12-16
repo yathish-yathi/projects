@@ -10,16 +10,10 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-//@RequestMapping(value = "demo")
 public class PostController {
 
     @Autowired
     PostRepository postRepository;
-
-    @GetMapping("/1")
-    public String getDetail() {
-        return "HELLO";
-    }
 
     @RequestMapping(value = "/")
     public void redirect(HttpServletResponse response) throws IOException {
