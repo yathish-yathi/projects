@@ -13,3 +13,8 @@ Technologies Used : HTML, CSS, javaScrip, ExpressJS, mongoDB
 Future Plans : 
 a. UserAthentication and Authorisation, only ower of a particular post and app should be allowed to make changes or delete.
 b. add one click email button for customer use which will compose email/msg and send it to traver agent with destinations customer interested in.
+
+How to start with ?
+1. Run index.js file to add dummy data into DB (create new DB and make changes to DB configurations)
+2. Then run app.js to start actual app.
+3. use API : http://localhost:8080/listings
