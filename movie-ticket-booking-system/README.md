@@ -11,6 +11,7 @@ Ticket Booking -> Users can book tickets with show id and seat number.
 
 Future plans : 
 1. add user athentication and authorisation , only Admin should be able to manage theater, movie , shows
+2. Handle concurrency
    
 Technologies Used
 Java 17+
