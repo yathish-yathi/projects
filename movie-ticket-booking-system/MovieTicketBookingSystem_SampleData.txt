@@ -1,0 +1,59 @@
+User :
+{
+  "name": "Krilin",
+  "age": 10,
+  "address": "Kame house",
+  "mobileNo": "987654",
+  "emailId": "KRL@gmail.com",
+  "gender": "MALE",
+  "role": "user",
+  "password": "abcd00"
+}
+
+Movie
+{
+  "movieName": "Avatar",
+  "duration": 180,
+  "rating": 8,
+  "releaseDate": "2024-12-27T07:35:23.115Z",
+  "genre": "ACTION",
+  "language": "ENGLISH"
+}
+
+add Theater
+{
+  "name": "INOX",
+  "address": "Bangalore"
+}
+
+add Theater seats
+{
+  "address": "Mumbai",
+  "noOfSeatsInRow": 10,
+  "noOfClassicSeats": 10,
+  "noOfPremiumSeats": 10
+}
+
+add show
+{
+  "showStartTime": "07:00:00",
+  "showDate": "2024-12-27T07:46:53.711Z",
+  "theaterId": 1,
+  "movieId": 1
+}
+
+associate seats to show
+{
+  "showId": 1,
+  "priceOfPremiumSeat": 500,
+  "priceOfClassicSeat": 300
+}
+
+Book a ticket
+{
+  "showId": 1,
+  "userId": 1,
+  "requestedSeats": [
+    "1A", "1B", "2A", "2B"
+  ]
+}
