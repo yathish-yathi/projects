@@ -11,7 +11,7 @@ Ticket Booking -> Users can book tickets with show id and seat number.
 
 Future plans : 
 1. add user athentication and authorisation , only Admin should be able to manage theater, movie , shows
-2. 
+   
 Technologies Used
 Java 17+
 Spring Boot 3.3.0
