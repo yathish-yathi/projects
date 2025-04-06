@@ -1,0 +1,3 @@
+1. Create and update SQL table 
+2. call http://localhost:8080/landPrice
+3. Enter latitude , longitude and Area of land in cents and submit
