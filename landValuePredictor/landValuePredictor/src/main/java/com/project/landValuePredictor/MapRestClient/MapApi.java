@@ -7,21 +7,29 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.project.landValuePredictor.configurations.ProjectConfigurations;
 import com.project.landValuePredictor.model.GeoCodeResponse;
 import com.project.landValuePredictor.model.PlacesResponse;
 
 @Component
 public class MapApi {
 	
-	private static final String apiKey = "AIzaSyBMBDygDQCrAa0_iaXqZsYV75CXqniVeOA";
-	
-	private static final String API_getNearbyPlaces = "https://places.googleapis.com/v1/places:searchNearby";
-	
-	private static final String API_getLatAndLng = "https://maps.googleapis.com/maps/api/geocode/json?address=place_name&key=apiKey";
-	
 	@Autowired
 	private RestTemplate restTemplate;
 	
+	private final String apiKey;
+	private final String API_getNearbyPlaces;
+	private final String API_getLatAndLng;
+		
+	
+	@Autowired
+	public MapApi(ProjectConfigurations projectConfigurations) {
+		this.apiKey = projectConfigurations.apiKey;
+		this.API_getNearbyPlaces = projectConfigurations.API_getNearbyPlaces;
+		this.API_getLatAndLng = projectConfigurations.API_getLatAndLng+apiKey;
+	}
+	
+		
 	//This API will pull nearby value points for a given lat and lng
 	public PlacesResponse getNearbyPlaces(String includedType, Integer maxResultCount, Double latitude, Double longitude, Double radius) {
 		

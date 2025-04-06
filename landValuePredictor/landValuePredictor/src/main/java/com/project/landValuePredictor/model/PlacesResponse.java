@@ -39,7 +39,6 @@ public class PlacesResponse {
     public static class Location{
     	private double latitude;
     	private double longitude;
-        
     }
 }
 

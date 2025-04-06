@@ -33,6 +33,7 @@ public class FindNearbyLandService {
 
 	@Autowired
 	private MapApi mapApi;
+	
 
 	public Double predictLandPrice(Double latitude, Double longitude, Double area) {
 

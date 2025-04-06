@@ -11,10 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class ProjectConfigurations {
-	
-	@Value("${map.api}")
-	public String api;
-	
+
 	@Value("${coordinate.lat}")
 	public Double latConst;
 	
@@ -29,6 +26,16 @@ public class ProjectConfigurations {
 	
 	@Value("${land.area.cents.minmum}")
 	public Integer minimumAcceptedLand;
+	
+	@Value("${mapApi.apiKey}")
+	public String apiKey;
+	
+	@Value("${mapApi.url.API_getNearbyPlaces}")
+	public String API_getNearbyPlaces;
+	
+	@Value("${mapApi.url.API_getLatAndLng}")
+	public String API_getLatAndLng;
+
 	
 	@Bean
 	public RestTemplate getRestTemplate() {
