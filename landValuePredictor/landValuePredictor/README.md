@@ -21,4 +21,8 @@
 4. How to get started
   > Run SQL command to create and add data into DB (we can predict value only around given data points, so use your onw coordinate-price data) and configure DB access in applicaton.properties
   > start spring boot application and hit http://localhost:8080/landPrice (if running in local host)
-  > Fill cordinate and area of land then submite  
+  > Fill cordinate and area of land then submite
+
+5. Feature needed to add ?
+   > Exception handling
+   > Authentication and authorisation 
