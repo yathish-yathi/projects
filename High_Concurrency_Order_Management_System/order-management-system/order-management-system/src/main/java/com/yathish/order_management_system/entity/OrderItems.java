@@ -6,24 +6,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
-public class Product {
-
+public class OrderItems {
     @Id
     @GeneratedValue
     private Long id;
 
-    private String name;    
-    private Integer stock;
+    private Long productId;
+    private Integer quantity;
     private BigDecimal price;
 
-     public Product(String string, int stock, BigDecimal price) {
-        this.name = string;
-        this.stock = stock;
-        this.price = price;
-    }
 }
