@@ -1,8 +1,12 @@
 package com.yathish.order_management_system.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,5 +39,16 @@ public class OrderController {
         //now order is placed by the authenticated user
         Order order = orderService.placeOrder(orderRequest);
         return ResponseEntity.ok(order);
+    }
+
+    @GetMapping("/getOrders")
+    public ResponseEntity<List<Order>> getOrdersByUserId() {
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+        //System.out.println("Authenticated Username: " + userName);
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+       // System.out.println("securityContext => "+securityContext);
+        User user = userRepository.findByUsername(userName).get();
+        Long userId = user.getId();
+        return ResponseEntity.ok(orderService.getOrdersByUserId(userId));
     }
 }

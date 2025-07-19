@@ -4,9 +4,11 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.security.WeakKeyException;
 
 @Component
 public class JwtUtil {
@@ -25,13 +27,28 @@ public class JwtUtil {
     }
 
     public String extractUsername(String token) {
-        JwtParser parser = Jwts.parser()
-                .verifyWith(Keys.hmacShaKeyFor(SECRET_KEY.getBytes()))
-                .build();
+        try {
+            JwtParser parser = Jwts.parser()
+                    .verifyWith(Keys.hmacShaKeyFor(SECRET_KEY.getBytes()))
+                    .build();
 
-        return parser.parseSignedClaims(token)
-                .getPayload()
-                .getSubject();
+            return parser.parseSignedClaims(token)
+                    .getPayload()
+                    .getSubject();
+        } catch (WeakKeyException e) {
+            // TODO Auto-generated catch block
+            System.out.println("Weak Key Exception: " + e.getMessage());
+        } catch (JwtException e) {
+            // TODO Auto-generated catch block
+            System.out.println("JWT Exception: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            System.out.println("Illegal Argument Exception: " + e.getMessage());
+        }catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+        return null;
     }
 
     public boolean validateToken(String token, String username) {
