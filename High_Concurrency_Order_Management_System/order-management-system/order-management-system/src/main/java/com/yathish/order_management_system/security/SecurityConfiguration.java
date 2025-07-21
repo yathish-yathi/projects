@@ -27,6 +27,7 @@ public class SecurityConfiguration {
                 .csrf(csrf -> csrf.disable()) // Required for POST to work via Postman
                 .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/auth/**").permitAll()
+                    .requestMatchers("/admin/**").hasRole("ADMIN")
                     .anyRequest().authenticated())
                 .sessionManagement(session -> session
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS))

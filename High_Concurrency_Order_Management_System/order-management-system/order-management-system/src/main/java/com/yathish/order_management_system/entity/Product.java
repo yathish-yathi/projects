@@ -2,6 +2,7 @@ package com.yathish.order_management_system.entity;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -17,7 +18,9 @@ public class Product {
     @GeneratedValue
     private Long id;
 
-    private String name;    
+    @Column(unique = true, nullable = false)
+    private String name;  
+      
     private Integer stock;
     private BigDecimal price;
 
