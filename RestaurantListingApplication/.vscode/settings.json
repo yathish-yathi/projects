@@ -1,0 +1,7 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.project.sourcePaths": [
+        "userInformationService"
+    ],
+    "java.compile.nullAnalysis.mode": "disabled"
+}
