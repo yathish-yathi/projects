@@ -1,0 +1,20 @@
+server:
+  port: 9094
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: ORDER-SERVICE
+
+data:
+  MongoDB:
+    uri: mongodb://localhost:27017/restaurant_order_db
+    host: localhost
+    port: 27017
+    database: restaurant_order_db
+    repositories:
+      enabled: true
